@@ -11,4 +11,8 @@
     <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.23.60" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sparklight.Application\Sparklight.Application.csproj" />
+  </ItemGroup>
+
 </Project>

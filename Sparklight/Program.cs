@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Sparklight.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

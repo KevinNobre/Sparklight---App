@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Sparklight.Domain\Sparklight.Domain.csproj" />
+    <ProjectReference Include="..\Sparklight.Infrastructure\Sparklight.Infrastructure.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
