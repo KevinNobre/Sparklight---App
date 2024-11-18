@@ -1,6 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.23.60" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Sparklight.Domain\Sparklight.Domain.csproj" />
   </ItemGroup>
 

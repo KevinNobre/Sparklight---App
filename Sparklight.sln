@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sparklight", "Sparklight\Sparklight.csproj", "{56D4C569-8710-44F5-88A6-52765F9FCAFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sparklight", "Sparklight\Sparklight.csproj", "{56D4C569-8710-44F5-88A6-52765F9FCAFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sparklight.Domain", "Sparklight.Domain\Sparklight.Domain.csproj", "{E40BFBFB-654C-4A59-88B1-A82EEDA21A04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sparklight.Domain", "Sparklight.Domain\Sparklight.Domain.csproj", "{E40BFBFB-654C-4A59-88B1-A82EEDA21A04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sparklight.Application", "Sparklight.Application\Sparklight.Application.csproj", "{5079862C-DD74-4B95-ACA3-952320E2D9B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sparklight.Application", "Sparklight.Application\Sparklight.Application.csproj", "{5079862C-DD74-4B95-ACA3-952320E2D9B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sparklight.Infrastructure", "Sparklight.Infrastructure\Sparklight.Infrastructure.csproj", "{8E5ACFD2-FABA-4576-B30F-E501CFF8CD5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sparklight.Infrastructure", "Sparklight.Infrastructure\Sparklight.Infrastructure.csproj", "{8E5ACFD2-FABA-4576-B30F-E501CFF8CD5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
