@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Sparklight.Data;
+using Sparklight.Domain.Repositories;
+using Sparklight.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,14 @@ builder.Services.AddControllersWithViews();
 // Configurar o DbContext com a string de conexão do Oracle
 builder.Services.AddDbContext<SparklightDbContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection")));
+
+
+// Registra os repositórios
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IAparelhoRepository, AparelhoRepository>();
+builder.Services.AddScoped<IHistoricoRepository, HistoricoRepository>();
+builder.Services.AddScoped<IItemRepository, ItemRepository>();
+builder.Services.AddScoped<IPontuacaoRepository, PontuacaoRepository>();
 
 var app = builder.Build();
 
