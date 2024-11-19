@@ -17,6 +17,6 @@ namespace Sparklight.Domain.Repositories
 
         // Métodos específicos
         Task<IEnumerable<Pontuacao>> GetByUsuarioAsync(int usuarioId);
-        Task<decimal> GetTotalPontuacaoByUsuarioAsync(int usuarioId);
+
     }
 }

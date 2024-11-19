@@ -1,0 +1,40 @@
+﻿@model Sparklight.Domain.Entities.Aparelho
+
+@{
+    ViewData["Title"] = "Excluir Aparelho";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="alert alert-warning">
+    <h4>Você tem certeza de que deseja excluir este aparelho?</h4>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9">@Model.AparelhoId</dd>
+
+            <dt class="col-sm-3">Nome</dt>
+            <dd class="col-sm-9">@Model.Nome</dd>
+
+            <dt class="col-sm-3">Potência</dt>
+            <dd class="col-sm-9">@Model.Potencia W</dd>
+
+            <dt class="col-sm-3">Tempo de Uso</dt>
+            <dd class="col-sm-9">@Model.Tempo horas/dia</dd>
+
+            <dt class="col-sm-3">Período</dt>
+            <dd class="col-sm-9">@Model.Periodo</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="form-group text-center mt-3">
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="AparelhoId" />
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

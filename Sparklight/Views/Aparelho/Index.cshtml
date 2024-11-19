@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Sparklight.Domain.Entities.Aparelho>
+
+@{
+    ViewData["Title"] = "Lista de Aparelhos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Novo Aparelho</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Consumo Médio</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var aparelho in Model)
+            {
+                <tr>
+                    <td>@aparelho.AparelhoId</td>
+                    <td>@aparelho.Nome</td>
+                    <td>@aparelho.Potencia kWh</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@aparelho.AparelhoId" class="btn btn-info btn-sm">Detalhes</a>
+                        <a asp-action="Edit" asp-route-id="@aparelho.AparelhoId" class="btn btn-warning btn-sm">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@aparelho.AparelhoId" class="btn btn-danger btn-sm">Excluir</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4" class="text-center">Nenhum aparelho encontrado.</td>
+            </tr>
+        }
+    </tbody>
+</table>
