@@ -18,10 +18,10 @@ public class DashboardController : Controller
             PercentualKwhHoje = 24.87
         };
 
-        // Verifique se o modelo foi inicializado corretamente
+        // Verifica se o modelo foi inicializado corretamente
         if (dashboardViewModel == null)
         {
-            return View("Error");  // Exiba uma página de erro caso o modelo não seja inicializado
+            return View("Error");  
         }
 
         return View(dashboardViewModel);
