@@ -21,31 +21,31 @@ O objetivo do Sparklight é criar um aplicativo que ajude os usuários a adotare
 
  ![image](https://github.com/user-attachments/assets/5410e472-84fe-43cb-aefb-33b16cf8edcb)
 
-##Funcionalidades Essenciais
+## Funcionalidades Essenciais
 
-###Monitoramento de Consumo Energético
+### Monitoramento de Consumo Energético
 Descrição: Permitir que o usuário registre seus dispositivos e visualize o consumo estimado com base no tempo de uso e nas especificações técnicas dos produtos.
 Detalhes Técnicos: Utilizar uma base de dados com o consumo médio de aparelhos ou permitir integração com medidores de energia IoT
 
-###Comparativo de Consumo
+### Comparativo de Consumo
 Descrição: Comparar o consumo do usuário com médias nacionais e de outros usuários na mesma região, incentivando uma competição saudável para reduzir o impacto ambiental.
 Gamificação: Medalhas e rankings para usuários que mais reduzem o consumo.
 
-###Sugestões de Economia
+### Sugestões de Economia
 Descrição: Oferecer dicas personalizadas baseadas no perfil de consumo do usuário.
 Exemplo: Substituir lâmpadas incandescentes por LEDs, ajustar o termostato de aparelhos, usar eletrodomésticos durante horários de menor custo (tarifa branca).
 
-###Impacto Ambiental
+### Impacto Ambiental
 Descrição: Mostrar gráficos sobre quanto CO2 foi economizado ou emitido devido ao consumo do usuário.
 Motivação: Relacionar o consumo com metas globais, como os Objetivos de Desenvolvimento Sustentável da ONU.
 
 ### Plano de Energia Renovável
 Descrição: Educar sobre alternativas sustentáveis (energia solar, eólica) e simular a economia ao adotá-las.
 
-###Comunidade e Ações Sustentáveis
+### Comunidade e Ações Sustentáveis
 Descrição: Criar um espaço para usuários compartilharem experiências, conquistas ou participarem de desafios de redução de energia.
 
-##Diferenciais Tecnológicos
+## Diferenciais Tecnológicos
 Inteligência Artificial (IA): Personalizar dicas de economia com base no perfil de uso do usuário e prever picos de consumo.
 Internet das Coisas (IoT): Integração com dispositivos inteligentes para monitoramento em tempo real.
 Blockchain: Utilizar tecnologia para incentivar créditos de carbono por economia de energia.
