@@ -5,6 +5,8 @@ namespace Sparklight.Data
 {
     public class SparklightDbContext : DbContext
     {
+        public object TB_APARELHO;
+
         public SparklightDbContext(DbContextOptions<SparklightDbContext> options) : base(options)
         {
         }

@@ -4,25 +4,49 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Sparklight</title>
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+          integrity="sha384-whatever-integrity-code" crossorigin="anonymous" onerror="this.href='~/lib/bootstrap/dist/css/bootstrap.min.css'" />
+
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="~/css/Dashboard.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Sparklight.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/AparelhoCreate.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-
+        <!-- Navegação e outras partes do cabeçalho -->
     </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
+    <footer>
+        <!-- Rodapé -->
     </footer>
+
+    <!-- jQuery -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+            integrity="sha384-whatever-integrity-code" crossorigin="anonymous" onerror="this.src='~/lib/jquery/dist/jquery.min.js'"></script>
+
+    <!-- jQuery Validation -->
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
+            integrity="sha384-whatever-integrity-code" crossorigin="anonymous" onerror="this.src='~/lib/jquery-validation/dist/jquery.validate.min.js'"></script>
+
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.13/jquery.validate.unobtrusive.min.js"
+            integrity="sha384-whatever-integrity-code" crossorigin="anonymous" onerror="this.src='~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'"></script>
+
+    <!-- Bootstrap -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"
+            integrity="sha384-whatever-integrity-code" crossorigin="anonymous" onerror="this.src='~/lib/bootstrap/dist/js/bootstrap.bundle.min.js'"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

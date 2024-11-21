@@ -43,6 +43,10 @@ namespace Sparklight.Controllers
             // Busca os aparelhos no banco de dados
             var aparelhos = await _aparelhoRepository.GetAllAsync();
             return View(aparelhos);
+
+
+
+
         }
 
         public IActionResult Privacy()

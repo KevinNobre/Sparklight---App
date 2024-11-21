@@ -47,7 +47,9 @@ namespace Sparklight.Controllers
                 try
                 {
                     await _aparelhoService.AddAparelhoAsync(aparelho);
-                    return RedirectToAction(nameof(Index));
+
+                    // Redireciona para Home/Dashboard após o salvamento
+                    return RedirectToAction("Dashboard", "Home");
                 }
                 catch (ArgumentException ex)
                 {
