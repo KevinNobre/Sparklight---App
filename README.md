@@ -1,4 +1,4 @@
-# Sparlkight - Eficiência Energética e Sustentabilidade
+# Sparklight - Eficiência Energética e Sustentabilidade
 
 
 Projeto desenvolvido por alunos do segundo ano de Análise e Desenvolvimento de Sistemas, atendendo às solicitações feitas na Global Solution 2/2024
