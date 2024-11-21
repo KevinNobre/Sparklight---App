@@ -11,33 +11,25 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>ID</th>
             <th>Nome</th>
-            <th>Consumo Médio</th>
+            <th>Potência (W)</th>
+            <th>Tempo (horas)</th>
+            <th>Período</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-        @if (Model != null && Model.Any())
-        {
-            foreach (var aparelho in Model)
-            {
-                <tr>
-                    <td>@aparelho.AparelhoId</td>
-                    <td>@aparelho.Nome</td>
-                    <td>@aparelho.Potencia kWh</td>
-                    <td>
-                        <a asp-action="Details" asp-route-id="@aparelho.AparelhoId" class="btn btn-info btn-sm">Detalhes</a>
-                        <a asp-action="Edit" asp-route-id="@aparelho.AparelhoId" class="btn btn-warning btn-sm">Editar</a>
-                        <a asp-action="Delete" asp-route-id="@aparelho.AparelhoId" class="btn btn-danger btn-sm">Excluir</a>
-                    </td>
-                </tr>
-            }
-        }
-        else
+        @foreach (var aparelho in Model)
         {
             <tr>
-                <td colspan="4" class="text-center">Nenhum aparelho encontrado.</td>
+                <td>@aparelho.Nome</td>
+                <td>@aparelho.Potencia</td>
+                <td>@aparelho.Tempo</td>
+                <td>@aparelho.Periodo</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@aparelho.AparelhoId" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@aparelho.AparelhoId" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
             </tr>
         }
     </tbody>

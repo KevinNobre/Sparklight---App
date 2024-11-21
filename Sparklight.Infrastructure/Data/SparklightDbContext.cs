@@ -19,10 +19,10 @@ namespace Sparklight.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configuração da entidade Usuario
-            modelBuilder.Entity<Usuario>().ToTable("tb_usuario");
+            modelBuilder.Entity<Usuario>().ToTable("TB_USUARIO");
 
             // Configuração da entidade Aparelho
-            modelBuilder.Entity<Aparelho>().ToTable("tb_aparelho");
+            modelBuilder.Entity<Aparelho>().ToTable("TB_APARELHO");
 
             // Configuração da entidade Item
             modelBuilder.Entity<Item>().ToTable("tb_item").HasKey(i => i.ItemId);

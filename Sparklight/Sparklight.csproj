@@ -19,8 +19,4 @@
     <None Include="wwwroot\images\Figura01.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\css\" />
-  </ItemGroup>
-
 </Project>

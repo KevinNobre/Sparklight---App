@@ -1,0 +1,46 @@
+﻿
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Crie sua conta no Sparklight</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-controller="Home" asp-action="Dashboard" method="post">
+                <!-- Nome -->
+                <div class="form-group mb-3">
+                    <label for="Nome">Nome</label>
+                    <input type="text" class="form-control" id="Nome" name="Nome" required />
+                </div>
+
+                <!-- Email -->
+                <div class="form-group mb-3">
+                    <label for="Email">Email</label>
+                    <input type="email" class="form-control" id="Email" name="Email" required />
+                </div>
+
+                <!-- Senha -->
+                <div class="form-group mb-3">
+                    <label for="Senha">Senha</label>
+                    <input type="password" class="form-control" id="Senha" name="Senha" required />
+                </div>
+
+                <!-- Confirmar Senha -->
+                <div class="form-group mb-3">
+                    <label for="ConfirmarSenha">Confirmar Senha</label>
+                    <input type="password" class="form-control" id="ConfirmarSenha" name="ConfirmarSenha" required />
+                </div>
+
+                <!-- Botão de Registro -->
+                <button type="submit" class="btn btn-primary w-100"><a asp-action="Dashboard">Registrar</a></button>
+
+                <!-- Link para Login -->
+                <p class="text-center mt-3">
+                    Já possui uma conta? <a asp-action="Index">Faça login aqui</a>.
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

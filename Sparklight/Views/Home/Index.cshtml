@@ -71,6 +71,7 @@
         <h1 class="title">Sparklight</h1>
         <p class="subtitle">Trazendo <span style="color: #ffc107;">consciência</span> para o seu espaço</p>
 
+
         <form method="post" action="/Home/Login">
             <div class="mb-3">
                 <input type="email" class="form-control" placeholder="Email" name="Email" required />
@@ -79,10 +80,11 @@
                 <input type="password" class="form-control" placeholder="Password" name="Password" required />
             </div>
             <div class="text-start">
-                <a href="#" style="color: #ffc107;">Esqueceu a senha?</a>
+                <a href="#" style="color: #ffc107;"><a asp-action="Registro">Registrar-se</a>
             </div>
-            <button type="submit" class="btn btn-custom mt-3">Login</button>
+            <button type="submit" class="btn btn-custom mt-3"><a asp-controller="Dashboard" asp-action="Dashboard">Login</a></button>
         </form>
+
         
         <div class="footer-img">
             <img src="~/images/Figura01.png" alt="Ilustração" class="img-fluid" />

@@ -2,11 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using Sparklight.Data;
 using Sparklight.Domain.Repositories;
 using Sparklight.Infrastructure.Repositories;
+using Sparklight.Services;
+using Microsoft.AspNetCore.Mvc;
+using Sparklight.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<AparelhoService>();
 
 // Configurar o DbContext com a string de conexão do Oracle
 builder.Services.AddDbContext<SparklightDbContext>(options =>
@@ -43,5 +47,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Aparelho}/{action=Index}/{id?}");
+
+
 
 app.Run();

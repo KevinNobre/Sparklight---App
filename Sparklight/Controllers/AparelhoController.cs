@@ -1,32 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Sparklight.Domain.Entities;
-using Sparklight.Domain.Repositories;
+using Sparklight.Services;
 
 namespace Sparklight.Controllers
 {
     public class AparelhoController : Controller
     {
-        private readonly IAparelhoRepository _aparelhoRepository;
+        private readonly AparelhoService _aparelhoService;
 
-        public AparelhoController(IAparelhoRepository aparelhoRepository)
+        public AparelhoController(AparelhoService aparelhoService)
         {
-            _aparelhoRepository = aparelhoRepository;
+            _aparelhoService = aparelhoService;
         }
 
         // Listar todos os aparelhos
         public async Task<IActionResult> Index()
         {
-            var aparelhos = await _aparelhoRepository.GetAllAsync();
+            var aparelhos = await _aparelhoService.GetAllAparelhosAsync();
             return View(aparelhos);
         }
 
         // Exibir detalhes de um aparelho
         public async Task<IActionResult> Details(int id)
         {
-            var aparelho = await _aparelhoRepository.GetByIdAsync(id);
+            var aparelho = await _aparelhoService.GetAparelhoByIdAsync(id);
             if (aparelho == null)
             {
-                return NotFound();
+                return NotFound("Aparelho não encontrado.");
             }
             return View(aparelho);
         }
@@ -44,8 +44,15 @@ namespace Sparklight.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _aparelhoRepository.AddAsync(aparelho);
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    await _aparelhoService.AddAparelhoAsync(aparelho);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (ArgumentException ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                }
             }
             return View(aparelho);
         }
@@ -53,10 +60,10 @@ namespace Sparklight.Controllers
         // Exibir formulário de edição
         public async Task<IActionResult> Edit(int id)
         {
-            var aparelho = await _aparelhoRepository.GetByIdAsync(id);
+            var aparelho = await _aparelhoService.GetAparelhoByIdAsync(id);
             if (aparelho == null)
             {
-                return NotFound();
+                return NotFound("Aparelho não encontrado.");
             }
             return View(aparelho);
         }
@@ -68,13 +75,24 @@ namespace Sparklight.Controllers
         {
             if (id != aparelho.AparelhoId)
             {
-                return BadRequest();
+                return BadRequest("IDs não coincidem.");
             }
 
             if (ModelState.IsValid)
             {
-                await _aparelhoRepository.UpdateAsync(aparelho);
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    await _aparelhoService.UpdateAparelhoAsync(aparelho);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (KeyNotFoundException ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                }
+                catch (ArgumentException ex)
+                {
+                    ModelState.AddModelError(string.Empty, ex.Message);
+                }
             }
             return View(aparelho);
         }
@@ -82,10 +100,10 @@ namespace Sparklight.Controllers
         // Exibir confirmação de exclusão
         public async Task<IActionResult> Delete(int id)
         {
-            var aparelho = await _aparelhoRepository.GetByIdAsync(id);
+            var aparelho = await _aparelhoService.GetAparelhoByIdAsync(id);
             if (aparelho == null)
             {
-                return NotFound();
+                return NotFound("Aparelho não encontrado.");
             }
             return View(aparelho);
         }
@@ -95,8 +113,30 @@ namespace Sparklight.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            await _aparelhoRepository.DeleteAsync(id);
+            try
+            {
+                await _aparelhoService.DeleteAparelhoAsync(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (KeyNotFoundException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+            }
+
             return RedirectToAction(nameof(Index));
+        }
+
+        // Buscar aparelhos por nome
+        public async Task<IActionResult> Search(string nome)
+        {
+            if (string.IsNullOrWhiteSpace(nome))
+            {
+                ModelState.AddModelError(string.Empty, "Por favor, insira um nome válido para buscar.");
+                return RedirectToAction(nameof(Index));
+            }
+
+            var aparelhos = await _aparelhoService.GetAparelhosByNomeAsync(nome);
+            return View("Index", aparelhos);
         }
     }
 }
