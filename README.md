@@ -14,10 +14,7 @@ Sparklight é um aplicativo projetado para educar, monitorar e incentivar os usu
 
 Vídeio Pitch: https://youtu.be/0dKvL1Tfhl8
 
-![image](https://github.com/user-attachments/assets/99d38928-aa16-4f84-933e-ff882b8c1aa6)
-
-
-![image](https://github.com/user-attachments/assets/0cb0a9e0-f823-46be-9868-a2ff922cc495)
+![image](https://github.com/user-attachments/assets/99d38928-aa16-4f84-933e-ff882b8c1aa6)              ![image](https://github.com/user-attachments/assets/0cb0a9e0-f823-46be-9868-a2ff922cc495)
 
 
 ### Objetivo do Projeto
