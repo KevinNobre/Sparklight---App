@@ -12,6 +12,7 @@ SABRINA COUTO XAVIER – RM: 552728
 ## Definição do Projeto
 Sparklight é um aplicativo projetado para educar, monitorar e incentivar os usuários a adotarem práticas energéticas mais eficientes, promovendo a conscientização sobre consumo e sustentabilidade. O objetivo é ajudar os usuários a reduzir seu impacto ambiental e melhorar sua eficiência energética através de funcionalidades interativas e personalizadas.
 
+Vídeio Pitch: https://youtu.be/0dKvL1Tfhl8
 
 ![image](https://github.com/user-attachments/assets/99d38928-aa16-4f84-933e-ff882b8c1aa6)
 
