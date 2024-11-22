@@ -1,81 +1,67 @@
 ﻿using Sparklight.Domain.Entities;
-using Sparklight.Domain.Repositories;
-
+using Sparklight.Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using Sparklight.Data;
 
 namespace Sparklight.Services
 {
     public class AparelhoService
     {
-        private readonly IAparelhoRepository _aparelhoRepository;
+        private readonly SparklightDbContext _dbContext;
 
-        public AparelhoService(IAparelhoRepository aparelhoRepository)
+        public AparelhoService(SparklightDbContext dbContext)
         {
-            _aparelhoRepository = aparelhoRepository;
+            _dbContext = dbContext;
         }
 
-        // Obter aparelho pelo ID
-        public async Task<Aparelho> GetAparelhoByIdAsync(int id)
-        {
-            return await _aparelhoRepository.GetByIdAsync(id);
-        }
-
-        // Obter todos os aparelhos
         public async Task<IEnumerable<Aparelho>> GetAllAparelhosAsync()
         {
-            return await _aparelhoRepository.GetAllAsync();
+            return await _dbContext.Aparelhos.ToListAsync();
         }
 
-        // Adicionar um novo aparelho
+        public async Task<Aparelho?> GetAparelhoByIdAsync(int id)
+        {
+            return await _dbContext.Aparelhos.FindAsync(id);
+        }
+
         public async Task AddAparelhoAsync(Aparelho aparelho)
         {
-            // Lógica adicional, se necessária (ex.: validações)
-            if (string.IsNullOrWhiteSpace(aparelho.Nome))
-            {
-                throw new ArgumentException("O nome do aparelho não pode ser vazio.");
-            }
-
-            if (aparelho.Potencia <= 0)
-            {
-                throw new ArgumentException("A potência do aparelho deve ser maior que zero.");
-            }
-
-            await _aparelhoRepository.AddAsync(aparelho);
+            _dbContext.Aparelhos.Add(aparelho);
+            await _dbContext.SaveChangesAsync();
         }
 
-        // Atualizar um aparelho existente
         public async Task UpdateAparelhoAsync(Aparelho aparelho)
         {
-            // Lógica adicional, se necessária (ex.: validações)
-            var existingAparelho = await _aparelhoRepository.GetByIdAsync(aparelho.AparelhoId);
-            if (existingAparelho == null)
+            var existente = await _dbContext.Aparelhos.FindAsync(aparelho.AparelhoId);
+            if (existente == null)
             {
-                throw new KeyNotFoundException("O aparelho não foi encontrado.");
+                throw new KeyNotFoundException("Aparelho não encontrado.");
             }
 
-            await _aparelhoRepository.UpdateAsync(aparelho);
+            existente.Nome = aparelho.Nome;
+            existente.Potencia = aparelho.Potencia;
+
+            _dbContext.Aparelhos.Update(existente);
+            await _dbContext.SaveChangesAsync();
         }
 
-        // Deletar um aparelho pelo ID
         public async Task DeleteAparelhoAsync(int id)
         {
-            var aparelho = await _aparelhoRepository.GetByIdAsync(id);
+            var aparelho = await _dbContext.Aparelhos.FindAsync(id);
             if (aparelho == null)
             {
-                throw new KeyNotFoundException("O aparelho não foi encontrado.");
+                throw new KeyNotFoundException("Aparelho não encontrado.");
             }
 
-            await _aparelhoRepository.DeleteAsync(id);
+            _dbContext.Aparelhos.Remove(aparelho);
+            await _dbContext.SaveChangesAsync();
         }
 
-        // Buscar aparelhos por nome
         public async Task<IEnumerable<Aparelho>> GetAparelhosByNomeAsync(string nome)
         {
-            if (string.IsNullOrWhiteSpace(nome))
-            {
-                throw new ArgumentException("O nome para a busca não pode ser vazio.");
-            }
-
-            return await _aparelhoRepository.GetByNomeAsync(nome);
+            return await _dbContext.Aparelhos
+                .Where(a => a.Nome.Contains(nome))
+                .ToListAsync();
         }
     }
 }

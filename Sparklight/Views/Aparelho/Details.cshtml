@@ -1,34 +1,60 @@
 ﻿@model Sparklight.Domain.Entities.Aparelho
 
 @{
-    ViewData["Title"] = "Detalhes do Aparelho";
+    ViewData["Title"] = "Editar Aparelho";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <div class="card">
     <div class="card-body">
-        <dl class="row">
-            <dt class="col-sm-3">ID</dt>
-            <dd class="col-sm-9">@Model.AparelhoId</dd>
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="AparelhoId" />
 
-            <dt class="col-sm-3">Nome</dt>
-            <dd class="col-sm-9">@Model.Nome</dd>
+            <!-- Nome do Aparelho -->
+            <div class="form-group">
+                <label asp-for="Nome" class="form-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
 
-            <dt class="col-sm-3">Potência</dt>
-            <dd class="col-sm-9">@Model.Potencia W</dd>
+            <!-- Potência -->
+            <div class="form-group">
+                <label asp-for="Potencia" class="form-label"></label>
+                <input asp-for="Potencia" class="form-control" />
+                <span asp-validation-for="Potencia" class="text-danger"></span>
+            </div>
 
-            <dt class="col-sm-3">Tempo de Uso</dt>
-            <dd class="col-sm-9">@Model.Tempo horas/dia</dd>
+            <!-- Tempo de Uso -->
+            <div class="form-group">
+                <label asp-for="Tempo" class="form-label"></label>
+                <input asp-for="Tempo" class="form-control" />
+                <span asp-validation-for="Tempo" class="text-danger"></span>
+            </div>
 
-            <dt class="col-sm-3">Período</dt>
-            <dd class="col-sm-9">@Model.Periodo</dd>
-        </dl>
+            <!-- Período -->
+            <div class="form-group">
+                <label asp-for="Periodo" class="form-label"></label>
+                <select asp-for="Periodo" class="form-select">
+                    <option value="Diurno">Diurno</option>
+                    <option value="Noturno">Noturno</option>
+                    <option value="Integral">Integral</option>
+                </select>
+                <span asp-validation-for="Periodo" class="text-danger"></span>
+            </div>
+
+            <!-- Botões -->
+            <div class="form-group text-center mt-3">
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
     </div>
 </div>
 
-<div class="form-group text-center mt-3">
-    <a asp-action="Edit" asp-route-id="@Model.AparelhoId" class="btn btn-primary">Editar</a>
-    <a asp-action="Delete" asp-route-id="@Model.AparelhoId" class="btn btn-danger">Excluir</a>
-    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
-</div>
+@section Scripts {
+    <!-- Adicionar validações client-side -->
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
