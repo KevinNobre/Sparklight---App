@@ -21,7 +21,8 @@ Vídeio Pitch: https://youtu.be/0dKvL1Tfhl8
 O objetivo do Sparklight é criar um aplicativo que ajude os usuários a adotarem práticas mais sustentáveis de consumo de energia, oferecendo insights personalizados sobre o consumo energético e sugestões de economia com base no comportamento dos usuários.
 
 
- ![image](https://github.com/user-attachments/assets/5410e472-84fe-43cb-aefb-33b16cf8edcb)   ![image](https://github.com/user-attachments/assets/3dbeea93-8f0f-4880-8632-d3148c2134d4)
+ ![image](https://github.com/user-attachments/assets/5410e472-84fe-43cb-aefb-33b16cf8edcb)   ![image](https://github.com/user-attachments/assets/3dbeea93-8f0f-4880-8632-d3148c2134d4)  ![image](https://github.com/user-attachments/assets/ddf696ed-e749-4ed3-843b-7e13737cb082)
+
 
 
 ## Funcionalidades Essenciais
